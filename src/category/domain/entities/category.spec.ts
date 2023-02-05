@@ -68,7 +68,7 @@ describe('Category Unit Tests', (): void => {
     data.forEach((i) => {
       const category = new Category(i.props, i.id as any)
       expect(category.id).not.toBeNull()
-      expect(category.id).toBeInstanceOf(UniqueEntityID)
+      expect(category.uniqueEntityId).toBeInstanceOf(UniqueEntityID)
     })
   })
 
@@ -129,5 +129,30 @@ describe('Category Unit Tests', (): void => {
       created_at
     })
     expect(category.created_at).toBe(created_at)
+  })
+
+  test('should update a category', () => {
+    const category = new Category({ name: "Movie" });
+    category.update("Documentary", "some description");
+    expect(category.name).toBe("Documentary")
+    expect(category.description).toBe("some description")
+  })
+
+  test('should active a category', () => {
+    const category = new Category({
+      name: "Filmes",
+      is_active: false,
+    });
+    category.activate();
+    expect(category.is_active).toBeTruthy()
+  })
+
+  test('should disable a category', () => {
+    const category = new Category({
+      name: "Filmes",
+      is_active: true,
+    });
+    category.deactivate();
+    expect(category.is_active).toBeFalsy()
   })
 })
