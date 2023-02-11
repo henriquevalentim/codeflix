@@ -1,5 +1,5 @@
 import { identity } from "lodash";
-import ValidationError from "../../../@seedwork/errors/validation-error";
+import ValidationError from "../../../@seedwork/domain/errors/validation-error";
 import { Category } from "./category"
 
 describe("Category Integration Tests", () => {
