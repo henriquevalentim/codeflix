@@ -1,4 +1,4 @@
-import ValidationError from "../domain/errors/validation-error"
+import { ValidationError } from "../../domain/errors/validation-error"
 
 export default class ValidatorRules {
     constructor(private value: any, private property: string) { }
