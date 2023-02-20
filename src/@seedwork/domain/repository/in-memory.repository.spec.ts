@@ -26,7 +26,7 @@ describe('InMemory Unit Test', () => {
     it('should throws error when entity not found', async () => {
         expect(repository.findById('fake id')).rejects.toThrow(new NotFoundError(`Entity Not Found using ID fake id`));
 
-        expect(repository.findById(new UniqueEntityID('f24b02fa-0ae5-4e36-9cbb-476e4baf1123'))).rejects.toThrow(new NotFoundError(`Entity Not Found using ID fake id`));
+        expect(repository.findById(new UniqueEntityID('f24b02fa-0ae5-4e36-9cbb-476e4baf1123'))).rejects.toThrow(new NotFoundError(`Entity Not Found using ID f24b02fa-0ae5-4e36-9cbb-476e4baf1123`));
     });
 
     it('should finds a entity by id', async () => {
@@ -67,7 +67,7 @@ describe('InMemory Unit Test', () => {
     it('should throws error on delete when entity not found', async () => {
         expect(repository.delete('fake id')).rejects.toThrow(new NotFoundError(`Entity Not Found using ID fake id`));
 
-        expect(repository.delete(new UniqueEntityID('f24b02fa-0ae5-4e36-9cbb-476e4baf1123'))).rejects.toThrow(new NotFoundError(`Entity Not Found using ID fake id`));
+        expect(repository.delete(new UniqueEntityID('f24b02fa-0ae5-4e36-9cbb-476e4baf1123'))).rejects.toThrow(new NotFoundError(`Entity Not Found using ID f24b02fa-0ae5-4e36-9cbb-476e4baf1123`));
     })
 
     it('should delete an entity', async () => {
